@@ -105,10 +105,16 @@ function handleLogin() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        window.location.href = "/dashboard.html";
+      } else {
+        alert("Such email or password not exist");
+      }
+      return res.json();
+    })
     .then((data) => {
       localStorage.setItem("token", data.token);
-      window.location.href = "/dashboard.html";
     });
 }
 
