@@ -100,14 +100,14 @@ function handleLogin() {
       user[labels[index].toLowerCase()] = input.value;
     }
   });
-  fetch("http://localhost:3000/api/login", {
+  fetch("http://localhost:3000/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
     .then((res) => {
       if (res.ok) {
-        window.location.href = "/dashboard.html";
+        window.location.href = "/frontend/dashboard.html";
       } else {
         alert("Such email or password not exist");
       }
@@ -125,7 +125,7 @@ function handleSignup() {
     user[labels[index].toLowerCase()] = input.value;
   });
 
-  fetch("http://localhost:3000/api/register", {
+  fetch("http://localhost:3000/auth/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
@@ -138,7 +138,7 @@ function handleSignup() {
 }
 
 function getAllUsers() {
-  fetch("http://localhost:3000/api/users", {
+  fetch("http://localhost:3000/auth/users", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
