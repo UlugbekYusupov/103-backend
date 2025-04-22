@@ -13,6 +13,7 @@ const projects = [
     members: [{ id: "123" }],
     deadline: Date(),
     status: "COMPLETED",
+    ownerID: "fjksdnfkjsdnfkjsdnf",
   },
 ];
 

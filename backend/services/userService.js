@@ -5,7 +5,7 @@ exports.register = (username, email, password) => {
   if (users.find((user) => user.username === username)) {
     throw Error("Username already taken");
   }
-  const newUser = { username, email, password };
+  const newUser = { username, email, password }; // add uuid when creating user
   users.push(newUser);
   return { ...newUser };
 };
