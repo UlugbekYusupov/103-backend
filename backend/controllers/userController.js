@@ -33,7 +33,7 @@ exports.getUsers = (req, res) => {
 };
 
 exports.getUserById = (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
   const foundUser = userService.getUserByID(id);
   if (!foundUser) {
     return res.status(404).json({ message: "User not found!" });

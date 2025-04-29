@@ -1,11 +1,19 @@
-const users = require("../config/database");
+const { users } = require("../config/database");
 const jwt = require("jsonwebtoken");
+const { v4: uuidv4 } = require("uuid");
 
 exports.register = (username, email, password) => {
   if (users.find((user) => user.username === username)) {
     throw Error("Username already taken");
   }
-  const newUser = { username, email, password }; // add uuid when creating user
+  const newUser = {
+    id: uuidv4(),
+    username,
+    email,
+    password,
+    ownedProjects: [],
+    participatedProjects: [],
+  };
   users.push(newUser);
   return { ...newUser };
 };
