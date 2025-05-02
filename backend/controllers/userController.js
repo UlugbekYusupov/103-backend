@@ -20,8 +20,8 @@ exports.login = (req, res) => {
   }
 
   try {
-    let token = userService.login(email, password);
-    return res.status(200).json({ token, message: "Succesfully login" });
+    let { token, id } = userService.login(email, password);
+    return res.status(200).json({ token, id, message: "Succesfully login" });
   } catch (error) {
     return res.status(401).json({ message: error });
   }

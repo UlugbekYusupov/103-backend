@@ -115,6 +115,7 @@ function handleLogin() {
     })
     .then((data) => {
       localStorage.setItem("token", data.token);
+      localStorage.setItem("id", data.id);
     });
 }
 

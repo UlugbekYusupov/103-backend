@@ -21,9 +21,11 @@ exports.register = (username, email, password) => {
 const secret_key = "bumanibirinchimartdatokenishlatishim";
 
 exports.login = (email, password) => {
-  if (
-    !users.find((user) => user.email === email && user.password === password)
-  ) {
+  const user = users.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  if (!user) {
     throw Error("Email or password incorrect!");
   }
 
@@ -31,7 +33,7 @@ exports.login = (email, password) => {
   if (!token) {
     return null;
   }
-  return token;
+  return { token, id: user.id };
 };
 
 exports.getAllusers = () => {
