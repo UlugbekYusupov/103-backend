@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management Dashboard</title>
+    <link rel="stylesheet" href="layout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <div class="logo-icon">B</div>
+            <span class="logo-text">Brees</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <button onclick="navClicked(this)" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </button>
+          <button onclick="navClicked(this)" class="nav-item">
+            <i class="fas fa-layer-group"></i>
+            <span>Projects</span>
+          </button>
+          <button onclick="navClicked(this)" class="nav-item">
+            <i class="fas fa-check-square"></i>
+            <span>Tasks</span>
+            <span class="badge">10</span>
+          </button>
+          <button onclick="navClicked(this)" class="nav-item">
+            <i class="fas fa-users"></i>
+            <span>Users</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="theme-toggle">
+            <button id="theme-toggle-btn"></button>
+          </div>
+          <div class="user-profile">
+            <div class="avatar">D</div>
+            <div class="user-info">
+              <p class="user-name">Donye</p>
+              <p class="user-email">collins@brees.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Top Navigation -->
+        <header class="top-nav">
+          <div class="view-options">
+            <button class="view-option active">
+              <i class="fas fa-th-large"></i>
+              <span>Board</span>
+            </button>
+            <button class="view-option">
+              <i class="fas fa-list"></i>
+              <span>List</span>
+            </button>
+            <button class="view-option">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </button>
+          </div>
+
+          <div class="top-nav-actions">
+            <div class="search-container">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" placeholder="Search" class="search-input" />
+            </div>
+          </div>
+        </header>
+
+        <!-- Task Board -->
+        <main class="task-board">
+          <div class="container">
+            <div class="owned">
+              Owned Projects
+              <div class="project-card">
+                <h2 class="project-title">Website Redesign</h2>
+                <p class="project-description">
+                  Redesign the corporate website for better user experience and
+                  responsiveness.
+                </p>
+                <div class="project-details">
+                  <p><strong>Status:</strong> In Progress</p>
+                  <p><strong>Deadline:</strong> June 15, 2025</p>
+                  <p><strong>Members:</strong> Alice, Bob, Charlie</p>
+                </div>
+              </div>
+            </div>
+            <div class="participated">
+              Participated Projects
+              <div class="project-card">
+                <h2 class="project-title">Website Redesign</h2>
+                <p class="project-description">
+                  Redesign the corporate website for better user experience and
+                  responsiveness.
+                </p>
+                <div class="project-details">
+                  <p><strong>Status:</strong> In Progress</p>
+                  <p><strong>Deadline:</strong> June 15, 2025</p>
+                  <p><strong>Members:</strong> Alice, Bob, Charlie</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="layout.js"></script>
+  </body>
+</html>

@@ -107,7 +107,7 @@ function handleLogin() {
   })
     .then((res) => {
       if (res.ok) {
-        window.location.href = "/frontend/dashboard.html";
+        window.location.href = "/frontend/layout.html";
       } else {
         alert("Such email or password not exist");
       }
@@ -119,80 +119,27 @@ function handleLogin() {
     });
 }
 
-function handleSignup() {
+async function handleSignup() {
   const inputs = document.querySelectorAll("input");
   let user = {};
   inputs.forEach((input, index) => {
     user[labels[index].toLowerCase()] = input.value;
   });
 
-  fetch("http://localhost:3000/auth/register", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  })
-    .then((res) => res.json())
-    .then((data) => appendRow(data.user));
+  try {
+    const responce = await fetch("http://localhost:3000/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
+
+    const data = await responce.json();
+    // appendRow(data.user);
+  } catch (err) {
+    console.error("Error: ", err);
+  }
   inputs.forEach((input) => {
     input.value = "";
   });
 }
-
-function getAllUsers() {
-  fetch("http://localhost:3000/auth/users", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((data) => createTbody(data));
-}
-
 document.body.appendChild(form);
-getAllUsers();
-
-const table = document.createElement("table");
-createTable();
-
-function createTable(users = []) {
-  table.style.border = "1px solid black";
-  table.style.borderCollapse = "collapse";
-  document.body.appendChild(table);
-  createThead();
-  createTbody(users);
-}
-
-function createThead() {
-  const thead = document.createElement("thead");
-  const tr = document.createElement("tr");
-  tr.style.border = "1px solid black";
-
-  labels.forEach((label) => {
-    const th = document.createElement("th");
-    th.style.border = "1px solid black";
-    th.textContent = label;
-    tr.appendChild(th);
-  });
-  thead.appendChild(tr);
-  table.appendChild(thead);
-}
-
-const tbody = document.createElement("tbody");
-
-function createTbody(users) {
-  users.forEach((user) => {
-    appendRow(user);
-  });
-}
-
-function appendRow(user) {
-  const tr = document.createElement("tr");
-  const values = Object.values(user);
-  for (let i = 0; i < values.length; i++) {
-    const td = document.createElement("td");
-    td.style.border = "1px solid black";
-    td.textContent = values[i];
-    tr.appendChild(td);
-  }
-  tbody.appendChild(tr);
-}
-table.appendChild(tbody);

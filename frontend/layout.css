@@ -506,3 +506,74 @@ button {
 .column-content.drag-over {
   background-color: rgba(20, 88, 221, 0.05);
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+.owned {
+  padding: 10px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.participated {
+  padding: 10px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.project-description {
+  font-size: 0.95em;
+  color: #555;
+  margin: 10px 0;
+}
+
+.project-details p {
+  margin: 4px 0;
+  font-size: 0.9em;
+}
